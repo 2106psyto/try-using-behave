@@ -1,10 +1,13 @@
+import csv
+
+
 class NishiVendor():
   def __init__(self):
-    self.goods = {
-      "ペットボトルの水":100,
-      "RedBull":200,
-      "おでん":500
-    }
+    self.goods = dict()
+    with open("product_price_list", "r", newline="") as ppl:
+      reader = csv.reader(ppl)
+      for row in reader:
+        self.goods[row[0]] = int(row[1])
 
   def charge(self, amount):
     self.charged = amount
