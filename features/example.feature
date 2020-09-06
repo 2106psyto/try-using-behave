@@ -1,25 +1,19 @@
 # -- FILE: features/example.feature
-Feature: Showing off behave
+Feature: 品物が買える
 
-  Scenario: Run a simple test
-    Given we have behave installed
-     When we implement 5 tests
-     Then behave will test them for us!
+  Scenario Outline: NishiVendorで品物を買う
+    Given ユーザーが <charge> 円を投入して
+     When <item>を選択すると
+     Then <item>が買えて
+     But おつりは<change>円
 
-  Scenario: 100円でペットボトルの水を買う
-    Given ユーザーが 100 円を投入して
-     When "ペットボトルの水"を選択すると
-     Then "ペットボトルの水"が買える
-     But おつりは 0 円
+  Examples: Drinks
+    |charge|item|change|
+    |100|"ペットボトルの水"|0|
+    |200|"ペットボトルの水"|100|
+    |200|"RedBull"|0|
 
-  Scenario: 200円でペットボトルの水を買う
-    Given ユーザーが 200 円を投入して
-     When "ペットボトルの水"を選択すると
-     Then "ペットボトルの水"が買える
-     But おつりは 100 円
-
-  Scenario: 200円でRedBullを買う
-    Given ユーザーが 200 円を投入して
-     When "RedBull"を選択すると
-     Then "RedBull"が買える
-     But おつりは 0 円
+  Examples: Foods
+    |charge|item|change|
+    |500|"おでん"|0|
+    |1000|"おでん"|500|
