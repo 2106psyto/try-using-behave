@@ -1,10 +1,10 @@
-import csv
-import json
 from behave import *
 from kennyvendor import KennyVendor
 
 goods = dict()
 def product_list():
+  import csv
+  import json
   with open("product_price_list", "r", newline="") as ppl:
     reader = csv.reader(ppl)
     for row in reader:
