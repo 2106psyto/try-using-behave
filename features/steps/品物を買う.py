@@ -1,14 +1,14 @@
 from behave import *
-from nishivendor import NishiVendor
+from kennyvendor import KennyVendor
 
 
 @given('ユーザーが {amount:d} 円を投入して')
 def step_impl(context, amount):
-    context.nv = NishiVendor()
+    context.nv = KennyVendor()
     context.nv.charge(amount)
 
 @when('"{product_name}"を選択すると')
-def step_impl(context, product_name):  # -- NOTE: number is converted into integer
+def step_impl(context, product_name):
     context.selected_product = product_name
     context.item, context.change = context.nv.select(product_name)
 

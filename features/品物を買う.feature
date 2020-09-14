@@ -1,4 +1,3 @@
-# -- FILE: features/example.feature
 Feature: 品物が買える
 
   Scenario Outline: NishiVendorで品物を買う
