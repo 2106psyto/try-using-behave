@@ -15,7 +15,6 @@ def product_list():
 @given('ユーザーがお金を投入していないとき')
 def step_impl(context):
     context.nv = KennyVendor()
-    context.nv.charge(0)
 
 @when('任意の品物を選択すると')
 def step_impl(context):

@@ -19,6 +19,7 @@ class Stock():
 
 class KennyVendor():
   def __init__(self):
+    self.charged = 0
     self.goods = Stock()
 
   def charge(self, amount):
